@@ -1,0 +1,13 @@
+.Rhistory
+.RData
+.Rproj.user
+.Renviron
+.git
+.gitignore
+*.Rproj
+README.md
+renv/library/
+renv/staging/
+renv/local/
+.vscode
+.DS_Store
