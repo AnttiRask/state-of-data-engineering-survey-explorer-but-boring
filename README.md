@@ -2,8 +2,8 @@
 
 Interactive Shiny dashboard visualizing the 2026 State of Data Engineering Survey results with 12 bar charts and dynamic filters.
 
-**Live Demo:** https://survey-explorer-927657136414.us-central1.run.app
-**Custom Domain:** surveyexplorerbutboring.youcanbeapirate.com (DNS configuration pending)
+**Live Demo:** https://surveyexplorerbutboring.youcanbeapirate.com
+**Cloud Run URL:** https://survey-explorer-927657136414.us-central1.run.app
 **Documentation:** https://youcanbeapirate.com/SurveyExplorerButBoring
 
 ## Features
@@ -82,41 +82,6 @@ gcloud run services logs read survey-explorer \
   --region us-central1 \
   --limit 50
 ```
-
-### Custom Domain Setup
-
-The app is configured with a custom domain. To complete the DNS setup:
-
-1. **Verify Domain Ownership** (if not already done):
-   ```bash
-   gcloud domains list-user-verified --project=chrome-duality-445915-b5
-   ```
-
-2. **Create Domain Mapping**:
-   ```bash
-   gcloud beta run domain-mappings create \
-     --service=survey-explorer \
-     --domain=surveyexplorerbutboring.youcanbeapirate.com \
-     --region=us-central1 \
-     --project=chrome-duality-445915-b5
-   ```
-
-3. **Configure DNS Records**:
-   Add the following CNAME record to your DNS provider:
-   - **Type**: CNAME
-   - **Name**: `surveyexplorerbutboring`
-   - **Target**: `ghs.googlehosted.com`
-   - **TTL**: 3600 (or your DNS provider's default)
-
-4. **Verify Domain Mapping Status**:
-   ```bash
-   gcloud beta run domain-mappings describe \
-     --domain=surveyexplorerbutboring.youcanbeapirate.com \
-     --region=us-central1 \
-     --project=chrome-duality-445915-b5
-   ```
-
-DNS propagation typically takes 5-15 minutes but can take up to 48 hours.
 
 ## Project Structure
 
